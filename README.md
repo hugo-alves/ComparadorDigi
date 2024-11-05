@@ -1,4 +1,6 @@
-# Comparador DIGI
+# FugaDIGI
+
+> Fuja agora, agradeça depois
 
 Ferramenta de comparação para ajudar consumidores portugueses a calcular potenciais poupanças ao mudar para a DIGI.
 
