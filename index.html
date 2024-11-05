@@ -6,12 +6,15 @@
     <title>FugaDIGI - Fuja agora, agradeça depois</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Calcule quanto pode poupar ao mudar para a DIGI. Compare planos, analise custos de rescisão e veja recomendações personalizadas.">
+    <meta property="og:title" content="FugaDIGI - Fuja agora, agradeça depois">
+    <meta property="og:description" content="Calcule sua potencial economia ao mudar para a DIGI">
+    <meta property="og:url" content="https://fugadigi.pt">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>FugaDIGI</h1>
-            <p class="tagline">Fuja agora, agradeça depois</p>
+            <h1>FugaDIGI - Fuja agora, agradeça depois</h1>
             <a href="https://www.digi.pt/" target="_blank" class="digi-link">
                 Visitar DIGI.pt
                 <svg viewBox="0 0 24 24" width="16" height="16">
@@ -20,6 +23,76 @@
                     <line x1="10" y1="14" x2="21" y2="3"></line>
                 </svg>
             </a>
+        </div>
+        
+        <div class="info-panel">
+            <button class="info-toggle" type="button">
+                <span>Como saber qual o seu periodo de fidelização e proceder com a mudança?</span>
+                <svg class="chevron" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M6 9l6 6 6-6"></path>
+                </svg>
+            </button>
+            
+            <div class="info-content">
+                <div class="info-section">
+                    <h4>1. Consulte o seu período de fidelização</h4>
+                    <div class="operator-links">
+                        <a href="https://my.vodafone.pt/" target="_blank" class="operator-link vodafone">
+                            <span>Vodafone</span>
+                            <span class="link-hint">My Vodafone → Os meus produtos e serviços → Os meus contratos</span>
+                        </a>
+                        <a href="https://cliente.nos.pt/" target="_blank" class="operator-link nos">
+                            <span>NOS</span>
+                            <span class="link-hint">Área Cliente → Os meus serviços → Detalhes → Fidelização</span>
+                        </a>
+                        <a href="https://cliente.meo.pt/" target="_blank" class="operator-link meo">
+                            <span>MEO</span>
+                            <span class="link-hint">My MEO → Os meus produtos → Detalhes do serviço</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h4>2. Plataforma de Cessação de Contratos</h4>
+                    <p>Use a plataforma oficial do governo para:</p>
+                    <ul>
+                        <li>Solicitar informações sobre o seu contrato</li>
+                        <li>Submeter pedidos de denúncia</li>
+                        <li>Obter detalhes sobre custos de rescisão</li>
+                    </ul>
+                    <a href="https://www.cessacaodecontratos.pt" target="_blank" class="platform-link">
+                        Aceder à Plataforma
+                        <svg viewBox="0 0 24 24" width="16" height="16">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="info-section">
+                    <h4>3. Situações de Rescisão Sem Custos</h4>
+                    <div class="exemption-cases">
+                        <div class="case">
+                            <span class="case-icon">📍</span>
+                            <span>Mudança para área sem cobertura</span>
+                        </div>
+                        <div class="case">
+                            <span class="case-icon">💼</span>
+                            <span>Desemprego involuntário</span>
+                        </div>
+                        <div class="case">
+                            <span class="case-icon">✈️</span>
+                            <span>Emigração</span>
+                        </div>
+                        <div class="case">
+                            <span class="case-icon">🏥</span>
+                            <span>Incapacidade para trabalho</span>
+                        </div>
+                    </div>
+                    <p class="note">* Necessário apresentar comprovativos à operadora</p>
+                </div>
+            </div>
         </div>
         
         <div class="two-column-layout">
@@ -87,13 +160,6 @@
                                             <span class="feature-value">+ de 60 canais</span>
                                         </div>
                                     </div>
-                                    <a href="https://www.digi.pt/" target="_blank" class="subscribe-button">
-                                        Aderir na DIGI
-                                        <svg viewBox="0 0 24 24" width="16" height="16">
-                                            <path d="M5 12h14"></path>
-                                            <path d="M12 5l7 7-7 7"></path>
-                                        </svg>
-                                    </a>
                                 </div>
 
                                 <div class="plan-card" data-price="27">
@@ -118,13 +184,6 @@
                                             <span class="feature-value">+ de 60 canais</span>
                                         </div>
                                     </div>
-                                    <a href="https://www.digi.pt/" target="_blank" class="subscribe-button">
-                                        Aderir na DIGI
-                                        <svg viewBox="0 0 24 24" width="16" height="16">
-                                            <path d="M5 12h14"></path>
-                                            <path d="M12 5l7 7-7 7"></path>
-                                        </svg>
-                                    </a>
                                 </div>
 
                                 <div class="plan-card" data-price="28">
@@ -149,13 +208,6 @@
                                             <span class="feature-value">+ de 60 canais</span>
                                         </div>
                                     </div>
-                                    <a href="https://www.digi.pt/" target="_blank" class="subscribe-button">
-                                        Aderir na DIGI
-                                        <svg viewBox="0 0 24 24" width="16" height="16">
-                                            <path d="M5 12h14"></path>
-                                            <path d="M12 5l7 7-7 7"></path>
-                                        </svg>
-                                    </a>
                                 </div>
 
                                 <div class="plan-card" data-price="29">
@@ -180,13 +232,6 @@
                                             <span class="feature-value">+ de 60 canais</span>
                                         </div>
                                     </div>
-                                    <a href="https://www.digi.pt/" target="_blank" class="subscribe-button">
-                                        Aderir na DIGI
-                                        <svg viewBox="0 0 24 24" width="16" height="16">
-                                            <path d="M5 12h14"></path>
-                                            <path d="M12 5l7 7-7 7"></path>
-                                        </svg>
-                                    </a>
                                 </div>
 
                                 <div class="plan-card" data-price="34">
@@ -211,13 +256,6 @@
                                             <span class="feature-value">+ de 60 canais</span>
                                         </div>
                                     </div>
-                                    <a href="https://www.digi.pt/" target="_blank" class="subscribe-button">
-                                        Aderir na DIGI
-                                        <svg viewBox="0 0 24 24" width="16" height="16">
-                                            <path d="M5 12h14"></path>
-                                            <path d="M12 5l7 7-7 7"></path>
-                                        </svg>
-                                    </a>
                                 </div>
                             </div>
 
@@ -240,75 +278,6 @@
                 </div>
                 <div id="empty-state">
                     <p>Preencha os dados do seu plano atual e do novo plano para ver a análise comparativa.</p>
-                </div>
-                <div class="info-panel">
-                    <button class="info-toggle" type="button">
-                        <span>Como proceder com a mudança?</span>
-                        <svg class="chevron" viewBox="0 0 24 24" width="24" height="24">
-                            <path d="M6 9l6 6 6-6"></path>
-                        </svg>
-                    </button>
-                    
-                    <div class="info-content">
-                        <div class="info-section">
-                            <h4>1. Consulte o seu período de fidelização</h4>
-                            <div class="operator-links">
-                                <a href="https://my.vodafone.pt/" target="_blank" class="operator-link vodafone">
-                                    <span>Vodafone</span>
-                                    <span class="link-hint">My Vodafone → Os meus produtos e serviços → Os meus contratos</span>
-                                </a>
-                                <a href="https://cliente.nos.pt/" target="_blank" class="operator-link nos">
-                                    <span>NOS</span>
-                                    <span class="link-hint">Área Cliente → Os meus serviços → Detalhes → Fidelização</span>
-                                </a>
-                                <a href="https://cliente.meo.pt/" target="_blank" class="operator-link meo">
-                                    <span>MEO</span>
-                                    <span class="link-hint">My MEO → Os meus produtos → Detalhes do serviço</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="info-section">
-                            <h4>2. Plataforma de Cessação de Contratos</h4>
-                            <p>Use a plataforma oficial do governo para:</p>
-                            <ul>
-                                <li>Solicitar informações sobre o seu contrato</li>
-                                <li>Submeter pedidos de denúncia</li>
-                                <li>Obter detalhes sobre custos de rescisão</li>
-                            </ul>
-                            <a href="https://www.cessacaodecontratos.pt" target="_blank" class="platform-link">
-                                Aceder à Plataforma
-                                <svg viewBox="0 0 24 24" width="16" height="16">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                    <polyline points="15 3 21 3 21 9"></polyline>
-                                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                                </svg>
-                            </a>
-                        </div>
-
-                        <div class="info-section">
-                            <h4>3. Situações de Rescisão Sem Custos</h4>
-                            <div class="exemption-cases">
-                                <div class="case">
-                                    <span class="case-icon">📍</span>
-                                    <span>Mudança para área sem cobertura</span>
-                                </div>
-                                <div class="case">
-                                    <span class="case-icon">💼</span>
-                                    <span>Desemprego involuntário</span>
-                                </div>
-                                <div class="case">
-                                    <span class="case-icon">✈️</span>
-                                    <span>Emigração</span>
-                                </div>
-                                <div class="case">
-                                    <span class="case-icon">🏥</span>
-                                    <span>Incapacidade para trabalho</span>
-                                </div>
-                            </div>
-                            <p class="note">* Necessário apresentar comprovativos à operadora</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
