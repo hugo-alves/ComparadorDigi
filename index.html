@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Operadoras</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Comparador de Operadoras</h1>
+            <a href="https://www.digi.pt/" target="_blank" class="digi-link">
+                Visitar DIGI.pt
+                <svg viewBox="0 0 24 24" width="16" height="16">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+            </a>
+        </div>
+        
+        <div class="two-column-layout">
+            <div class="column input-column">
+                <form id="comparison-form">
+                    <div id="step-1" class="step active">
+                        <div class="current-plan">
+                            <h2>1. Plano Atual</h2>
+                            <div class="form-group">
+                                <label for="current-price">Mensalidade Atual (€)</label>
+                                <input type="number" id="current-price" required min="0" step="0.01" placeholder="0.00">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="remaining-months">Meses Restantes do Contrato</label>
+                                <input type="number" id="remaining-months" required min="0" max="24" placeholder="0">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="exit-fee">Penalização por Rescisão (€)</label>
+                                <input type="number" id="exit-fee" required min="0" step="0.01" placeholder="0.00">
+                                <div class="iva-toggle">
+                                    <label class="radio-label">
+                                        <input type="radio" name="exit-fee-iva" value="with-iva" checked>
+                                        <span>Valor com IVA</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="exit-fee-iva" value="without-iva">
+                                        <span>Valor sem IVA</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" id="next-step" class="primary-button">Próximo</button>
+                        </div>
+                    </div>
+
+                    <div id="step-2" class="step">
+                        <div class="new-plan">
+                            <div class="step-header">
+                                <h2>2. Novo Plano</h2>
+                                <button type="button" id="back-step" class="text-button">← Voltar</button>
+                            </div>
+                            <div class="form-group plans-grid">
+                                <div class="plan-card" data-price="26">
+                                    <div class="plan-header">
+                                        <div class="plan-price">
+                                            <span class="amount">26</span>
+                                            <span class="period">€/mês</span>
+                                        </div>
+                                        <div class="promo-price">22€/mês até 31 de dezembro</div>
+                                    </div>
+                                    <div class="plan-features">
+                                        <div class="feature">
+                                            <span class="feature-label">Fibra</span>
+                                            <span class="feature-value">1 Gbps</span>
+                                        </div>
+                                        <div class="feature">
+                                            <span class="feature-label">Móvel</span>
+                                            <span class="feature-value">50 GB + Chamadas ilimitadas</span>
+                                        </div>
+                                        <div class="feature">
+                                            <span class="feature-label">TV</span>
+                                            <span class="feature-value">+ de 60 canais</span>
+                                        </div>
+                                    </div>
+                                    <a href="https://www.digi.pt/" target="_blank" class="subscribe-button">
+                                        Aderir na DIGI
+                                        <svg viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M5 12h14"></path>
+                                            <path d="M12 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+
+                                <div class="plan-card" data-price="27">
+                                    <div class="plan-header">
+                                        <div class="plan-price">
+                                            <span class="amount">27</span>
+                                            <span class="period">€/mês</span>
+                                        </div>
+                                        <div class="promo-price">22€/mês até 31 de dezembro</div>
+                                    </div>
+                                    <div class="plan-features">
+                                        <div class="feature">
+                                            <span class="feature-label">Fibra</span>
+                                            <span class="feature-value">1 Gbps</span>
+                                        </div>
+                                        <div class="feature">
+                                            <span class="feature-label">Móvel</span>
+                                            <span class="feature-value">100 GB + Chamadas ilimitadas</span>
+                                        </div>
+                                        <div class="feature">
+                                            <span class="feature-label">TV</span>
+                                            <span class="feature-value">+ de 60 canais</span>
+                                        </div>
+                                    </div>
+                                    <a href="https://www.digi.pt/" target="_blank" class="subscribe-button">
+                                        Aderir na DIGI
+                                        <svg viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M5 12h14"></path>
+                                            <path d="M12 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+
+                                <div class="plan-card" data-price="28">
+                                    <div class="plan-header">
+                                        <div class="plan-price">
+                                            <span class="amount">28</span>
+                                            <span class="period">€/mês</span>
+                                        </div>
+                                        <div class="promo-price">22€/mês até 31 de dezembro</div>
+                                    </div>
+                                    <div class="plan-features">
+                                        <div class="feature">
+                                            <span class="feature-label">Fibra</span>
+                                            <span class="feature-value">1 Gbps</span>
+                                        </div>
+                                        <div class="feature">
+                                            <span class="feature-label">Móvel</span>
+                                            <span class="feature-value">150 GB + Chamadas ilimitadas</span>
+                                        </div>
+                                        <div class="feature">
+                                            <span class="feature-label">TV</span>
+                                            <span class="feature-value">+ de 60 canais</span>
+                                        </div>
+                                    </div>
+                                    <a href="https://www.digi.pt/" target="_blank" class="subscribe-button">
+                                        Aderir na DIGI
+                                        <svg viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M5 12h14"></path>
+                                            <path d="M12 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+
+                                <div class="plan-card" data-price="29">
+                                    <div class="plan-header">
+                                        <div class="plan-price">
+                                            <span class="amount">29</span>
+                                            <span class="period">€/mês</span>
+                                        </div>
+                                        <div class="promo-price">22€/mês até 31 de dezembro</div>
+                                    </div>
+                                    <div class="plan-features">
+                                        <div class="feature">
+                                            <span class="feature-label">Fibra</span>
+                                            <span class="feature-value">1 Gbps</span>
+                                        </div>
+                                        <div class="feature">
+                                            <span class="feature-label">Móvel</span>
+                                            <span class="feature-value">ILIMITADO com dados e chamadas ilimitadas</span>
+                                        </div>
+                                        <div class="feature">
+                                            <span class="feature-label">TV</span>
+                                            <span class="feature-value">+ de 60 canais</span>
+                                        </div>
+                                    </div>
+                                    <a href="https://www.digi.pt/" target="_blank" class="subscribe-button">
+                                        Aderir na DIGI
+                                        <svg viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M5 12h14"></path>
+                                            <path d="M12 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+
+                                <div class="plan-card" data-price="34">
+                                    <div class="plan-header">
+                                        <div class="plan-price">
+                                            <span class="amount">34</span>
+                                            <span class="period">€/mês</span>
+                                        </div>
+                                        <div class="promo-price">22€/mês até 31 de dezembro</div>
+                                    </div>
+                                    <div class="plan-features">
+                                        <div class="feature">
+                                            <span class="feature-label">Fibra</span>
+                                            <span class="feature-value">1 Gbps</span>
+                                        </div>
+                                        <div class="feature">
+                                            <span class="feature-label">Móvel</span>
+                                            <span class="feature-value">2 x ILIMITADO com dados e chamadas ilimitadas</span>
+                                        </div>
+                                        <div class="feature">
+                                            <span class="feature-label">TV</span>
+                                            <span class="feature-value">+ de 60 canais</span>
+                                        </div>
+                                    </div>
+                                    <a href="https://www.digi.pt/" target="_blank" class="subscribe-button">
+                                        Aderir na DIGI
+                                        <svg viewBox="0 0 24 24" width="16" height="16">
+                                            <path d="M5 12h14"></path>
+                                            <path d="M12 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="new-price">Ou inserir outro valor (€)</label>
+                                <input type="number" id="new-price" min="0" step="0.01" placeholder="0.00">
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="primary-button">Calcular</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="column results-column">
+                <div id="results" class="hidden">
+                    <!-- Results will be inserted here via JavaScript -->
+                </div>
+                <div id="empty-state">
+                    <p>Preencha os dados do seu plano atual e do novo plano para ver a análise comparativa.</p>
+                </div>
+                <div class="info-panel">
+                    <button class="info-toggle" type="button">
+                        <span>Como proceder com a mudança?</span>
+                        <svg class="chevron" viewBox="0 0 24 24" width="24" height="24">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </button>
+                    
+                    <div class="info-content">
+                        <div class="info-section">
+                            <h4>1. Consulte o seu período de fidelização</h4>
+                            <div class="operator-links">
+                                <a href="https://my.vodafone.pt/" target="_blank" class="operator-link vodafone">
+                                    <span>Vodafone</span>
+                                    <span class="link-hint">My Vodafone → Os meus produtos e serviços → Os meus contratos</span>
+                                </a>
+                                <a href="https://cliente.nos.pt/" target="_blank" class="operator-link nos">
+                                    <span>NOS</span>
+                                    <span class="link-hint">Área Cliente → Os meus serviços → Detalhes → Fidelização</span>
+                                </a>
+                                <a href="https://cliente.meo.pt/" target="_blank" class="operator-link meo">
+                                    <span>MEO</span>
+                                    <span class="link-hint">My MEO → Os meus produtos → Detalhes do serviço</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="info-section">
+                            <h4>2. Plataforma de Cessação de Contratos</h4>
+                            <p>Use a plataforma oficial do governo para:</p>
+                            <ul>
+                                <li>Solicitar informações sobre o seu contrato</li>
+                                <li>Submeter pedidos de denúncia</li>
+                                <li>Obter detalhes sobre custos de rescisão</li>
+                            </ul>
+                            <a href="https://www.cessacaodecontratos.pt" target="_blank" class="platform-link">
+                                Aceder à Plataforma
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div class="info-section">
+                            <h4>3. Situações de Rescisão Sem Custos</h4>
+                            <div class="exemption-cases">
+                                <div class="case">
+                                    <span class="case-icon">📍</span>
+                                    <span>Mudança para área sem cobertura</span>
+                                </div>
+                                <div class="case">
+                                    <span class="case-icon">💼</span>
+                                    <span>Desemprego involuntário</span>
+                                </div>
+                                <div class="case">
+                                    <span class="case-icon">✈️</span>
+                                    <span>Emigração</span>
+                                </div>
+                                <div class="case">
+                                    <span class="case-icon">🏥</span>
+                                    <span>Incapacidade para trabalho</span>
+                                </div>
+                            </div>
+                            <p class="note">* Necessário apresentar comprovativos à operadora</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="src/app.js"></script>
+</body>
+</html> 
