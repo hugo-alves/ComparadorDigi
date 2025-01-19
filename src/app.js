@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const emptyState = document.getElementById('empty-state');
     const planCards = document.querySelectorAll('.plan-card');
     const newPriceInput = document.getElementById('new-price');
-    
+
     // Step navigation
     const step1 = document.getElementById('step-1');
     const step2 = document.getElementById('step-2');
@@ -41,58 +41,30 @@ document.addEventListener('DOMContentLoaded', () => {
         step1.classList.add('active');
     });
 
-    // Function to calculate months until December 31st
-    function getMonthsUntilDecember() {
-        const now = new Date();
-        const endOfYear = new Date(now.getFullYear(), 11, 31); // December 31st
-        const monthsDiff = (endOfYear.getMonth() - now.getMonth()) + 
-                          (12 * (endOfYear.getFullYear() - now.getFullYear()));
-        return Math.max(0, monthsDiff + 1); // +1 to include current month
-    }
-
     // Function to calculate and display results
     function calculateAndDisplayResults(newPrice) {
         const currentPrice = parseFloat(document.getElementById('current-price').value);
         const remainingMonths = parseInt(document.getElementById('remaining-months').value);
         const exitFeeInput = parseFloat(document.getElementById('exit-fee').value);
         const exitFeeHasIVA = document.querySelector('input[name="exit-fee-iva"]:checked').value === 'with-iva';
-        const promoPrice = 22; // Promotional price until December
-        const monthsUntilDecember = getMonthsUntilDecember();
-        
+
         // Calculate exit fee with IVA if needed
         const exitFee = exitFeeHasIVA ? exitFeeInput : exitFeeInput * 1.23;
 
-        // Calculate savings considering promotional period
-        const promoMonths = Math.min(monthsUntilDecember, remainingMonths);
-        const regularMonths = remainingMonths - promoMonths;
-        
-        // Calculate savings during promotional period (current price vs 22€)
-        const promoSavings = (currentPrice - promoPrice) * promoMonths;
-        
-        // Calculate savings after promotional period (current price vs full new price)
-        const regularSavings = (currentPrice - newPrice) * regularMonths;
-        
-        // Calculate total potential savings
-        const totalPotentialSavings = promoSavings + regularSavings;
-        
+        // Calculate savings
+        const totalSavings = (currentPrice - newPrice) * remainingMonths;
+
         // Subtract exit fee to get actual savings
-        const actualSavings = totalPotentialSavings - exitFee;
+        const actualSavings = totalSavings - exitFee;
 
         // Calculate average monthly savings for breakeven
-        const totalSavingsPerMonth = totalPotentialSavings / remainingMonths;
+        const totalSavingsPerMonth = totalSavings / remainingMonths;
         const breakevenMonths = totalSavingsPerMonth > 0 ? Math.ceil(exitFee / totalSavingsPerMonth) : Infinity;
 
         // Display results with more detailed breakdown
         resultsDiv.innerHTML = `
             <h3>Resultados da Análise</h3>
-            <p>Período Promocional:
-                <br>• ${promoMonths} meses a ${promoPrice}€ (vs. ${currentPrice}€)
-                <br>• Poupança: ${promoSavings.toFixed(2)}€
-            </p>
-            <p>Período Regular:
-                <br>• ${regularMonths} meses a ${newPrice}€ (vs. ${currentPrice}€)
-                <br>• Poupança: ${regularSavings.toFixed(2)}€
-            </p>
+            <p>Poupança Total (antes da taxa de rescisão): ${totalSavings.toFixed(2)}€</p>
             <p>Taxa de Rescisão ${exitFeeHasIVA ? '(já com IVA)' : '(com IVA incluído)'}: ${exitFee.toFixed(2)}€</p>
             <p>Poupança Total (após taxa de rescisão): ${actualSavings.toFixed(2)}€</p>
             ${totalSavingsPerMonth > 0 ? 
@@ -105,15 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     actualSavings,
                     breakevenMonths,
                     remainingMonths,
-                    exitFee,
-                    totalPotentialSavings,
-                    promoMonths,
-                    promoPrice,
-                    newPrice
+                    exitFee
                 )}
             </div>
         `;
-        
+
         resultsDiv.classList.remove('hidden');
         emptyState.style.display = 'none';
     }
@@ -123,10 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('click', () => {
             // Remove selection from other cards
             planCards.forEach(c => c.classList.remove('selected'));
-            
+
             // Select this card
             card.classList.add('selected');
-            
+
             // Update the price input
             const price = parseFloat(card.dataset.price);
             newPriceInput.value = price;
@@ -153,18 +121,14 @@ function generateRecommendation(
     actualSavings, 
     breakevenMonths, 
     remainingMonths, 
-    exitFee, 
-    totalPotentialSavings,
-    promoMonths,
-    promoPrice,
-    regularPrice
+    exitFee
 ) {
     if (avgMonthlySavings <= 0) {
         return "❌ Não recomendamos a mudança. O novo plano não oferece poupança significativa.";
     }
 
     if (actualSavings <= 0) {
-        return `❌ Não recomendamos a mudança. A taxa de rescisão (${exitFee.toFixed(2)}€) é maior que a poupança total possível (${totalPotentialSavings.toFixed(2)}€).`;
+        return `❌ Não recomendamos a mudança. A taxa de rescisão (${exitFee.toFixed(2)}€) é maior que a poupança total possível.`;
     }
 
     if (breakevenMonths > remainingMonths) {
@@ -174,8 +138,6 @@ function generateRecommendation(
     }
 
     return `✅ Recomendamos a mudança! 
-            Pagará ${promoPrice}€/mês durante ${promoMonths} meses (até 31 de dezembro),
-            depois ${regularPrice}€/mês.
             Começará a poupar dinheiro após ${breakevenMonths} meses e 
             poupará ${actualSavings.toFixed(2)}€ no total.`;
-} 
+}
